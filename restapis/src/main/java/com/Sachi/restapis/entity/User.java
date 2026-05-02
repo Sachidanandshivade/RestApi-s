@@ -8,8 +8,11 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 import org.aspectj.bridge.IMessage;
 
+@Getter
 @Entity
+@Data
 public class User {
+    // Getters & Setters
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,21 +23,9 @@ public class User {
     @NotBlank(message = "Email is required")
     private String email;
 
-    // Constructors
-    public User() {}
+    private String password;
 
-    public User(Long id, String name, String email) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-    }
-    // Getters & Setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
 
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
 
-    public String getEmail() { return email; }
-    public void setEmail(String email) { this.email = email; }
+
 }
